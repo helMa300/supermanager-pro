@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperManager Pro - Solution Intégrée de Gestion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0cf159dc;
+            --secondary-color: #27ae27;
+        }
+/* Animation du chariot */
+@keyframes cart-ride {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        .cart-animation {
+            position: absolute;
+            animation: cart-ride 8s linear infinite;
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .history-timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding: 20px 40px;
+            margin: 30px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 24px;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+        .department-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .department-card img {
+            transition: transform 0.3s;
+        }
+
+        .department-card:hover img {
+            transform: scale(1.1);
+        }
+        .department-overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .department-card:hover .department-overlay {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-cash-register"></i>
+                SuperManager Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#history">Historique</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Fonctionnalités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#departments">Rayons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Partager</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- Hero Section avec chariot animé -->
+<header class="vh-100 bg-primary position-relative overflow-hidden">
+    <div class="h-100 d-flex align-items-center justify-content-center text-white text-center">
+        <div class="cart-animation">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="position-relative z-1">
+            <h1 class="display-3 fw-bold mb-4">Votre Supermarché 4.0</h1>
+            <p class="lead">Solution complète de gestion commerciale</p>
+        </div>
+    </div>
+</header><!-- Section Historique -->
+<section id="history" class=" py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Notre Histoire</h2>
+        <div class="history-content"
+            <h3 class="test-primary">Bienvenue sur notre site SUPER MANAGER PRO</h3>
+            <p>le site de notre application our la gestion des supermarchés.<br> Ensemble,nous avons mené un projet permettant de gerer la gestion des stock<br>optimiser les operations de caisse et améliorer l'experience client.</p>
+        </div>
+        <div class="timeline-item">
+            <h3>2022 - Version Pro</h3>
+            <p>Intégration de la gestion des stocks multi-rayons</p>
+        </div>
+        <div class="timeline-item">
+            <h3>2025 - Intelligence Artificielle</h3>
+            <p>Prévision des ventes et optimisation des stocks par IA</p>
+        </div>
+    </div>
+</section><!-- Section Fonctionnalités -->
+<section id="features" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Fonctionnalités Clés</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <i class="fas fa-robot fa-3x text-primary mb-3"></i>
+                        <h3>Gestion Automatisée</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> Réapprovisionnement intelligent</li>
+                            <li><i class="fas fa-check text-success"></i> Alertes péremption</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Ajouter d'autres fonctionnalités -->
+        </div>
+    </div>
+</section>
+
+<!-- Section Rayons -->
+<section id="departments" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Nos Rayons Gérés</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="department-card">
+                    <img src="https://source.unsplash.com/random/800x600?fish" class="img-fluid" alt="Poissonnerie">
+                    <div class="department-overlay">
+                        <h3>Poissonnerie</h3>
+                        <p>Gestion des températures et DLC</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="department-card">
+                    <img src="https://source.unsplash.com/random/800x600?cosmetics" class="img-fluid" alt="Cosmétique">
+                    <div class="department-overlay">
+                        <h3>Cosmétique</h3>
+                        <p>Suivi des lots et rappels produits</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ajouter d'autres rayons -->
+        </div>
+    </div>
+</section>
+<p>Gestion des températures et DLC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="department-card">
+                        <img src="https://source.unsplash.com/random/800x600?cosmetics" class="img-fluid" alt="Cosmétique">
+                        <div class="department-overlay">
+                            <h3>Cosmétique</h3>
+                            <p>Suivi des lots et rappels produits</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ajouter d'autres rayons -->
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function copyLink() {
+            const link = document.getElementById('share-link');
+            link.select();
+            document.execCommand('copy');
+            alert('Lien copié dans le presse-papiers !');
+        }
+// Animation au défilement
+window.addEventListener('scroll', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const position = item.getBoundingClientRect();
+                if(position.top < window.innerHeight * 0.8) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<button onclick="partagerSite()">Partager ce site</button>
+
+<script>
+function partagerSite() {
+    const lien = "https://votre-utilisateur.github.io/supermarket1/";  // Remplacez par votre lien
+    if (navigator.share) {
+        // Partage natif (mobile)
+        navigator.share({
+            title: 'Visitez mon supermarché en ligne',
+            url: lien
+        });
+    } else {
+        // Fallback pour les navigateurs sans support
+        alert("Copiez ce lien : " + lien);
+    }
+}
+</script>
